@@ -2,6 +2,197 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom styles for Apple-like design with SF Pro */
+@layer base {
+  @font-face {
+    font-family: 'SF Pro Display';
+    src: local('SF Pro Display'),
+         local('SFProDisplay-Regular'),
+         local('San Francisco Display');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'SF Pro Display';
+    src: local('SF Pro Display Bold'),
+         local('SFProDisplay-Bold'),
+         local('San Francisco Display Bold');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'SF Pro Text';
+    src: local('SF Pro Text'),
+         local('SFProText-Regular'),
+         local('San Francisco Text');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'SF Mono';
+    src: local('SF Mono'),
+         local('SFMono-Regular'),
+         local('San Francisco Mono');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gray-900 bg-white dark:text-white dark:bg-black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.011em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Apple-style button */
+  .apple-button {
+    @apply bg-blue-500 text-white font-medium rounded-full px-6 py-3
+           hover:bg-blue-600 transition-colors duration-300
+           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
+           shadow-md hover:shadow-lg active:scale-[0.98];
+  }
+  
+  /* Apple-style card */
+  .apple-card {
+    @apply rounded-2xl bg-white dark:bg-gray-800 shadow-lg
+           border border-gray-100 dark:border-gray-700
+           overflow-hidden transition-all duration-300;
+  }
+
+  /* Apple-style input */
+  .apple-input {
+    @apply w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-800
+           border border-gray-200 dark:border-gray-700
+           text-gray-900 dark:text-white focus:border-blue-500 
+           dark:focus:border-blue-500 focus:outline-none 
+           focus:ring-1 focus:ring-blue-500 transition-colors duration-300;
+  }
+
+  /* Apple-style divider */
+  .apple-divider {
+    @apply h-px w-full bg-gray-200 dark:bg-gray-700 my-6;
+  }
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shine {
+  from {
+    background-position: 200% center;
+  }
+  to {
+    background-position: -200% center;
+  }
+}
+
+/* Animated gradient text for headings */
+.gradient-text {
+  background: linear-gradient(to right, #007AFF, #5AC8FA, #007AFF);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shine 8s linear infinite;
+}
+
+/* Blob animation */
+@keyframes blob {
+  0%, 100% { 
+    transform: translate(0, 0) scale(1); 
+  }
+  25% { 
+    transform: translate(20px, -10px) scale(1.05); 
+  }
+  50% { 
+    transform: translate(0, 10px) scale(1); 
+  }
+  75% { 
+    transform: translate(-20px, -10px) scale(0.95); 
+  }
+}
+
+.animate-blob {
+  animation: blob 10s infinite ease;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Background grid pattern */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dark .bg-grid-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-600;
+}
+
+/* Glass effect styles */
+.glass-effect {
+  @apply backdrop-blur-md bg-white/80 dark:bg-black/80 border border-white/20 dark:border-white/10;
+}
+
+/* Code syntax highlighting */
+code {
+  @apply font-mono bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm;
+}
+
+pre {
+  @apply p-4 rounded-lg bg-gray-100 dark:bg-gray-800 overflow-x-auto;
+}@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Custom styles for Apple-like design */
 @layer base {
   body {
