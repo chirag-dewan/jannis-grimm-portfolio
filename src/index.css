@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for Apple-like design */
+@layer base {
+  body {
+    @apply text-gray-900 bg-white dark:text-white dark:bg-black transition-colors duration-500;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Apple-style button */
+  .apple-button {
+    @apply bg-blue-500 text-white font-medium rounded-full px-6 py-3
+           hover:bg-blue-600 transition-colors duration-300
+           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50;
+  }
+  
+  /* Glass effect for cards */
+  .glass-card {
+    @apply backdrop-blur-lg bg-white/50 dark:bg-black/50 border border-gray-200 dark:border-gray-800;
+  }
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Add SF Pro fonts if available (for maximum Apple look) */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display'),
+       local('SFProDisplay-Regular'),
+       local('San Francisco Display');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display Bold'),
+       local('SFProDisplay-Bold'),
+       local('San Francisco Display Bold');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: local('SF Pro Text'),
+       local('SFProText-Regular'),
+       local('San Francisco Text');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-600;
+}
